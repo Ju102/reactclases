@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 import HijoDeporte from './HijoDeporte';
 
 class PadreDeportes extends Component {
-    deportes = ["Futebol", "Baloncesto", "Tenis", "Voleibol"];
+    deportes = ["Futebol", "Basquetebol", "Tênis", "Voleibol"];
 
     state = {
         favorito: ""
+    }
+
+    mostrarFavorito = (fav) => {
+        this.setState({
+            favorito: fav 
+        });
     }
 
     render() {
@@ -14,11 +20,11 @@ class PadreDeportes extends Component {
                 <h1>Deportes PADRE</h1>
                 {
                     this.deportes.map((deporte, index) => {
-                        return (<HijoDeporte key={index} nombre={deporte}></HijoDeporte>);
+                        return (<HijoDeporte key={index} nombre={deporte} mostrarFavorito={this.mostrarFavorito}></HijoDeporte>);
                     })
                 }
                 <hr style={{marginTop: "30px"}}></hr>
-                <p>Deporte favorito: <b></b></p>
+                <p>Deporte favorito: <b>{this.state.favorito}</b></p>
 
             </div>
         )
