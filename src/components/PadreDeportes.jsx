@@ -5,12 +5,12 @@ class PadreDeportes extends Component {
     deportes = ["Futebol", "Basquetebol", "Tênis", "Voleibol"];
 
     state = {
-        favorito: ""
+        favorito: "",
     }
 
     mostrarFavorito = (fav) => {
         this.setState({
-            favorito: fav 
+            favorito: fav
         });
     }
 
@@ -23,8 +23,10 @@ class PadreDeportes extends Component {
                         return (<HijoDeporte key={index} nombre={deporte} mostrarFavorito={this.mostrarFavorito}></HijoDeporte>);
                     })
                 }
-                <hr style={{marginTop: "30px"}}></hr>
-                <p>Deporte favorito: <b>{this.state.favorito}</b></p>
+                <hr style={{ marginTop: "30px" }}></hr>
+                <div style={{ backgroundColor: "lightgreen", width: "auto"}}>
+                    <p>Deporte favorito: <b>{this.state.favorito}</b> </p>
+                </div>
 
             </div>
         )
